@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CommentController as AdminCommentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\CommentController;
@@ -61,4 +62,5 @@ Route::middleware(['auth', 'can:admin'])->prefix('/admin')->as('admin.')->group(
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::resource('users', AdminUserController::class)->only('index');
     Route::resource('ideas', AdminIdeaController::class)->only('index');
+    Route::resource('comments', AdminCommentController::class)->only('index', 'destroy');
 });
