@@ -30,7 +30,7 @@ class IdeaController extends Controller
     public function edit(Idea $idea){
         $this->authorize('update', $idea);
         $editing = true;
-        return view('ideas.show ', compact('idea','editing'));   
+        return view('ideas.show', compact('idea','editing'));   
     }
 
     public function update(UpdateIdeaRequest $request, Idea $idea){
